@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta lang="pl-Pl">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="weater checking webpage">
+    <meta name="keywords" content="weather, webpage, karoj wojtylus">
+    <title>Pogodynka - Polska, europa, jakość powietrza.</title> 
+    <script src="https://kit.fontawesome.com/4c4b968272.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="icon" href="img/sun.ico" type="img/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="branding">            
+            <i class="fas fa-poo-storm fa-2x"></i>
+            <h1>Pogoda, jakość powietrza</h1>
+        </div>
+        <nav class="socials">
+            <ul class="social-list">
+                <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+                <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+                <li><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></li></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="main">
+        <section class="current-results-cnt">
+            <div class="current-results-header">
+                <form  class="city-search">
+                    <input type="text" placeholder="Wpisz miasto" class="input-text" onsubmit="return false">
+                    <button type="submit" class="input-text-submit">
+                        <i class="fas fa-search fa-2x"></i>
+                    </button>
+                </form>
+                <h3 class="current-city">lorem ipsum ciulsum</h3>
+            </div>
+            <div class="current-weather-results ">
+                <figure class="current-weather-img-cnt cnt">
+                    <img class="current-weather-img">
+                    <figcaption class="current-weather-describe"></figcaption>
+                </figure>
+                <div class="current-temp-cnt cnt">
+                    <h4 class="type-of-value">Temperatura.</h4>
+                    <span class="value current-temp-value"></span>
+                </div>
+                <div class="temp-detectable-cnt cnt">
+                    <h4 class="type-of-value">Temperatura odczuwalna.</h4>
+                    <span class="value detectable-value"></span>
+                </div>
+                <div class="pressure-cnt cnt">
+                    <h4 class="type-of-value">Ciśnienie.</h4>
+                    <span class="value pressure-value"></span>
+                </div>              
+            </div>
+            <button class="activate-details-btn">Kliknij by pokazać/schować dodatkowe parametry</button>
+                <div class="current-weather-results-details">
+                    <div class="tempmax-cnt cnt">
+                        <h4 class="type-of-value">Temp-maksymalna.</h4>
+                        <span class="value tempm-value"></span>
+                    </div>
+                    <div class="templow-cnt cnt">
+                        <h4 class="type-of-value">Temp-minimalna.</h4>
+                        <span class="value templ-value"></span>
+                    </div>
+                    <div class="humidity-cnt cnt">
+                        <h4 class="type-of-value">Wilgotność.</h4>
+                        <span class="value humidity-value"></span>
+                    </div>
+                    <div class="wind-cnt cnt">
+                        <h4 class="type-of-value">Prędkość wiatru.</h4>
+                        <span class="value wind-value"></span>
+                    </div>
+                </div>
+            <div class="current-air-results">
+                <div class="caqi-cnt cnt">
+                    <h4 class="type-of-value">Cagi</h4>
+                    <span class="value caqi-value"></span>
+                    <div class="tooltip air-quality-description-tooltip"></div>
+                </div>
+                <div class="air-quality-describe-cnt cnt">
+                    <span class="value air-describe-value"></span>
+                </div>
+                <div class="pm10-cnt cnt">
+                    <h4 class="type-of-value">Pm10</h4>
+                    <span class="value pm10-value"></span>
+                    <div class="tooltip pm10-tooltip">
+                        <p>Mieszanina zawieszonych w powietrzu cząsteczek o średnicy nie większej niż 10 μm.</p>
+                        <p>W skład mogą wchodzić takie substancje toksyczne jak np. benzopireny, dioksyny i furany.</p>
+                        <p>Występowanie pyłów PM10 związane jest m.in. z procesami spalania paliw stałych i ciekłych</p>
+                        <p>Norma pyłow pm10 wynosi 25µg/m3</p>
+                    </div>
+                </div>
+                <div class="pm25-cnt cnt">
+                    <h4 class="type-of-value">PM2.5</h4>
+                    <span class="value pm25-value"></span>
+                    <div class="tooltip pm25-tooltip">
+                        <p>Aerozole atmosferyczne (pył zawieszony) o średnicy nie większej niż 2,5 μm,</p> 
+                        <p>który zdaniem Światowej Organizacji Zdrowia jest najbardziej szkodliwy dla zdrowia człowieka spośród innych zanieczyszczeń atmosferycznych.</p>
+                        <p>Norma pyłow pm2.5 wynosi 50µg/m3</p>
+                    </div>  
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="contact-cnt cnt">
+            <span>
+                Numer kontaktowy: +48 888 888 888
+            </span>
+            <span>
+                E-mail: kontakt@pogodynka.pl
+            </span>
+        </div>
+        <div class="aboutus-cnt cnt">
+            <h2>Pogodynka</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Cum dolor deserunt, enim consectetur 
+                amet ut quod quo reiciendis est voluptatum, 
+                et modi veritatis eum cumque.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/WeatherClass.js"></script>
+    <script type="module" src="js/AirQualityClass.js"></script>
+</body>
+</html>
