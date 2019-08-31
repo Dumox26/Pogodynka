@@ -43,7 +43,7 @@ ul{
     width: 100%;
     padding: 0 1rem;
     background-color: var(--secondaryColor);
-    border-bottom: 2px solid var(--bordersColor);
+    border-bottom: 0.3rem solid var(--bordersColor);
     margin-bottom: 1rem;
     display: flex;
     flex-flow: column nowrap;
@@ -58,7 +58,7 @@ ul{
     justify-content: center;
     align-items: center;
     align-content: center;
-    min-height: 30px;
+    min-height: 2rem;
 }
 
 .branding, .socials{
@@ -250,7 +250,7 @@ button:focus {
 
 .site-footer{
     background: var(--secondaryColor);
-    border-top: 2px solid var(--bordersColor);
+    border-top: 0.3rem solid var(--bordersColor);
     margin-top: 1rem;
     width: 100%;
     min-height: 15vh;
@@ -288,13 +288,13 @@ button:focus {
 
 @media(min-width: 700px){
     .site-header{
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
     }
 
     .current-results-header, .site-footer{
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
         justify-content: space-between;
     }
 
