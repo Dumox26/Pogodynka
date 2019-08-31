@@ -21,7 +21,6 @@ body{
     max-width: 100%;
     display: grid;
     grid-template-rows: repeat(3, auto);
-    overflow-x: hidden;
 }
 
 a{
