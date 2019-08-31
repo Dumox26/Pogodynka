@@ -156,6 +156,10 @@ ul{
     grid-template-rows: 2fr 2fr;
 }
 
+.current-weather-describe{
+    text-transform: capitalize;
+}
+
 .activate-details-btn{
     grid-row: 3/4;
     font-size: 0.8rem;
