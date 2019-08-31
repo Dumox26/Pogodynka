@@ -17,8 +17,7 @@ body{
     font-size: 1rem;
     height: 100vh;
     min-height: 100%;
-    width: 100vw;
-    max-width: 100%;
+    width: 100%;
     display: grid;
     grid-template-rows: repeat(3, auto);
 }
@@ -44,8 +43,7 @@ ul{
 
 .site-header{
     min-height: 10vh;
-    width: 100vw;
-    max-width: 100%;
+    width: 100%;
     padding: 0 1rem;
     background-color: var(--secondaryColor);
     border-bottom: 2px solid var(--bordersColor);
@@ -256,9 +254,8 @@ button:focus {
 .site-footer{
     background: var(--secondaryColor);
     border-top: 2px solid var(--bordersColor);
-    width: 100vw;
     margin-top: 1rem;
-    max-width: 100%;
+    width: 100%;
     min-height: 15vh;
     padding: 0 1rem;
     display:flex;
