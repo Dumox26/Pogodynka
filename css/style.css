@@ -89,7 +89,7 @@ ul{
 .current-results-cnt{
     width: 85vw;
     background: var(--secondaryColor);
-    border: 3px solid var(--bordersColor);
+    border: 0.3rem solid var(--bordersColor);
     border-radius: 10px;
     margin: 2rem auto;
     display: grid;
@@ -112,7 +112,7 @@ ul{
 
 .current-city{
     font-size: 1.5rem;
-    padding: 5px;
+    padding: 0.3rem;
     text-align: center;
     margin: 0.8rem 1rem;
 }
@@ -126,13 +126,17 @@ ul{
 
 .input-text{
     border: 0;
-    padding: 5px;
+    padding: 0.3rem;
 }
 
 .input-text-submit{
     background: white;
     border: 0;
     cursor: pointer;
+}
+
+.input-text, .input-text-submit{
+    height: 2.5rem;
 }
 
 /*Sekcja pogody*/
