@@ -1,8 +1,11 @@
 :root{
     font-size: 15px;
-    --primaryColor: #5967FF;
-    --secondaryColor: #FFEC4C;
+    --backgroundColor: #ffff;
+    --primaryColor: #5C69FF;
     --bordersColor: #59EB9A;
+    --secondaryColor: #2E39B3;
+    --shadowboxColorPrimary:  0px 0px 15px 5px rgba(92,105,255,0.7);
+    --shadowboxColorSecondary: 0px 0px 15px 5px rgba(46,57,179,0.7);
 }
 
 *{
@@ -12,9 +15,10 @@
 }
 
 body{
-    background-color: var(--primaryColor);
+    background-color: var(--backgroundColor);
     font-family: 'Montserrat';
     font-size: 1rem;
+    color: #fff;
     display: grid;
     grid-template-rows: repeat(3, auto);
 }
@@ -36,6 +40,14 @@ ul{
     list-style: none;
 }
 
+button{
+    color: #fff;
+}
+
+button:focus {
+    outline:0;
+}
+
 /*nagłowek*/
 
 .site-header{
@@ -51,6 +63,7 @@ ul{
     align-items: center;
     flex: 1 1;
     grid-row: 1/2;
+    box-shadow: var(--shadowboxColorSecondary);
 }
 
 .branding{
@@ -77,10 +90,15 @@ ul{
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+   
 }
 
 .social-list li{
     margin: 0.5rem 0.5rem;
+}
+
+.social-list li a i{
+    color: #fff;
 }
 
 /*Głowna zawartość*/
@@ -88,7 +106,7 @@ ul{
 .current-results-cnt{
     width: 85vw;
     min-height: 60vh;
-    background: var(--secondaryColor);
+    background: var(--primaryColor);
     border: 0.3rem solid var(--bordersColor);
     border-radius: 10px;
     margin: 2rem auto;
@@ -96,6 +114,7 @@ ul{
     grid-template-rows: 0.25fr 1fr 0.25fr auto;
     position: relative;
     grid-row: 2/3;
+    box-shadow: var(--shadowboxColorPrimary);
 }
 
 .current-results-header{
@@ -134,6 +153,10 @@ ul{
     background: white;
     border: 0;
     cursor: pointer;
+}
+
+.input-text-submit i {
+    color: #000;
 }
 
 .input-text, .input-text-submit{
@@ -179,11 +202,7 @@ ul{
     text-align: center;
     padding: 0.3rem;
     border: 1px solid var(--bordersColor);
-    background-color: var(--secondaryColor);
-}
-
-button:focus {
-    outline:0;
+    background-color: var(--primaryColor);
 }
 
 .current-results-cnt.active-details{
@@ -214,7 +233,7 @@ button:focus {
 }
 
 .current-weather-results-details{
-    background: var(--secondaryColor);
+    background: var(--primaryColor);
     display: none;
     grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
     opacity: 0;
@@ -252,7 +271,7 @@ button:focus {
     display: none;
     position: absolute;
     border: dotted 1px var(--bordersColor);
-    background: var(--secondaryColor);
+    background: var(--primaryColor);
     opacity: 0;
     transition: opacity 0.7s linear;
     border-radius: 5px;
@@ -276,6 +295,7 @@ button:focus {
     justify-content: center;
     align-items: center;
     grid-row: 3/4;
+    box-shadow: var(--shadowboxColorSecondary);
 }
 
 .contact-cnt{
