@@ -48,7 +48,7 @@ ul{
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     flex: 1 1;
     grid-row: 1/2;
 }
@@ -76,7 +76,6 @@ ul{
 .social-list{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -128,6 +127,7 @@ ul{
 .input-text{
     border: 0;
     padding: 0.3rem;
+    font-size: 1rem;
 }
 
 .input-text-submit{
@@ -147,6 +147,18 @@ ul{
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
+}
+
+.cnt h4, span{
+    text-align: center;
+}
+
+.cnt h4{
+    font-size: 0.8rem;
+}
+
+.cnt span{
+    font-size: 1.2rem;
 }
 
 .current-weather-results{
@@ -233,11 +245,6 @@ button:focus {
     grid-area: 2/2/3/4;
 }
 
-.type-of-value, .value{
-    text-align: center;
-    font-size: 1rem;
-}
-
 /* ToolTipy */
 
 .tooltip{
@@ -251,7 +258,7 @@ button:focus {
     font-size: 1.25rem;
     padding: 0.5rem;
     line-height: 1.5;
-    width: 250px;
+    width: 350px;
 }
 
 /*Stopka strony*/
@@ -316,6 +323,10 @@ button:focus {
 }
 
 @media(min-width: 1000px){
+    :root{
+        font-size: 18px;
+    }
+
     .current-results-cnt{
         width: 50vw;
         min-height: 70vh;
