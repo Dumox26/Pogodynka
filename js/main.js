@@ -8,36 +8,45 @@ navigator.geolocation.getCurrentPosition((position) => {
         lat: position.coords.latitude,
         lon: position.coords.longitude
     }
+    
     WeatherClass.downloadCurrentWeatherConditions(parameters).then(resolve => {
         const currentWeaherConditions = new WeatherClass(resolve.data);
         currentWeaherConditions.showCurrentWeatherConditions();
         AirQuality.downloadtAirQualityData(position.coords.latitude, position.coords.longitude).then(resolve => {
+            
             const airQualityResults = new AirQuality(resolve.data);
             document.querySelector(".current-air-results").setAttribute("style", "display: grid");
             airQualityResults.showAirQuality();
+
         }).catch(error => { Error(error) })
     })
-        .catch((error => Error(error)))
+    .catch((error => Error(error)))
 
 }, reject => {
     //Nie udzielenie zgody na geolokaizacje
     //wywoływanie pogody dla ostatniej lokalizacji
+
     if (localStorage.getItem("weatherConditionsLastLocation") != "") {
         const lastSearchedLocalization = JSON.parse(localStorage.getItem("weatherConditionsLastLocation"));
         WeatherClass.downloadCurrentWeatherConditions(lastSearchedLocalization).then(resolve => {
+
             const currentWeatherConditions = new WeatherClass(resolve.data);
             currentWeatherConditions.showCurrentWeatherConditions();
             const lastSearchedLocalizationGeoCords = JSON.parse(localStorage.getItem("airQualityGeoCords"));
+            
             if (localStorage.getItem("airQualityFlag") === "false") {
                 document.querySelector(".current-air-results").setAttribute("style", "display: grid");
+                
                 AirQuality.downloadtAirQualityData(lastSearchedLocalizationGeoCords.lat, lastSearchedLocalizationGeoCords.lng).then(resolve => {
                     const airQualityResults = new AirQuality(resolve.data)
                     airQualityResults.showAirQuality();
                 })
+
             } else {
                 document.querySelector(".current-air-results").setAttribute("style", "display: none");
             }
         })
+
     } else {
         WeatherClass.downloadCurrentWeatherConditions().then(resolve => {
             const currentWeatherClass = new WeatherClass(resolve.data);
