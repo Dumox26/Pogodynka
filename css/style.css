@@ -151,6 +151,7 @@ ul{
 
 .cnt h4, span{
     text-align: center;
+    margin: 0.3rem
 }
 
 .cnt h4{
@@ -253,7 +254,7 @@ button:focus {
     border: dotted 1px var(--bordersColor);
     background: var(--secondaryColor);
     opacity: 0;
-    /* transition: opacity 0.7s linear ; */
+    transition: opacity 0.7s linear;
     border-radius: 5px;
     font-size: 1.25rem;
     padding: 0.5rem;
@@ -301,6 +302,12 @@ button:focus {
     padding: 0.3rem;
 }
 
+@media(orientation: landscape){
+    .current-air-results{
+        min-height: 238px;
+    }
+}
+
 @media(min-width: 700px){
     .site-header{
         flex-flow: row nowrap;
@@ -328,8 +335,7 @@ button:focus {
     }
 
     .current-results-cnt{
-        width: 50vw;
-        min-height: 70vh;
+        width: 45vw;
         grid-template-rows: 0.25fr 1fr 1fr auto;
     }
 
