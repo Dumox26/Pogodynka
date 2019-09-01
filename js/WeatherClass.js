@@ -30,7 +30,7 @@ class WeatherClass {
     }
 
     showCurrentWeatherConditions() {
-        const iconAPiURL = "http://openweathermap.org/img/wn/";
+        const iconAPiURL = "https://openweathermap.org/img/wn/";
         const weatherCurrentIcone = document.querySelector(".current-weather-img");
         const weatherCurrentDescription = document.querySelector(".current-weather-describe");
         const weatherCurrentTemp = document.querySelector(".current-temp-value");
@@ -58,7 +58,7 @@ class WeatherClass {
 
     static async downloadCurrentWeatherConditions(params = { q: "warszawa" }) {
         console.log(params);
-        return await axios.get("http://api.openweathermap.org/data/2.5/weather?appid=92c581f751a8ab015bc220ef2217adf5&units=metric&lang=pl&",
+        return await axios.get("https://api.openweathermap.org/data/2.5/weather?appid=92c581f751a8ab015bc220ef2217adf5&units=metric&lang=pl&",
             { params });
     }
 }
