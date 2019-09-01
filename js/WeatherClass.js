@@ -6,7 +6,7 @@ class WeatherClass {
             this.temp = Math.round(weatherConditions.main.temp),
             this.tempMax = Math.round(weatherConditions.main.temp_max),
             this.tempMin = Math.round(weatherConditions.main.temp_min)
-        this.description = weatherConditions.weather[0].description,
+            this.description = weatherConditions.weather[0].description,
             this.windSpeed = Math.round(weatherConditions.wind.speed),
             this.icon = weatherConditions.weather[0].icon
     }
@@ -57,8 +57,7 @@ class WeatherClass {
     }
 
     static async downloadCurrentWeatherConditions(params = { q: "warszawa" }) {
-        console.log(params);
-        return await axios.get("https://api.openweathermap.org/data/2.5/weather?appid=92c581f751a8ab015bc220ef2217adf5&units=metric&lang=pl&",
+        return await axios.get("https://api.openweathermap.org/data/2.5/weather?appid=92c581f751a8ab015bc220ef2217adf5&units=metric&lang=pl",
             { params });
     }
 }
