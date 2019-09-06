@@ -9,6 +9,7 @@ function loadWeatherData(inputValue = { q: "warszawa" }){
         currentWeather.savelastSearchedLocationInLocalStorage(inputValue);
         loadAirQualityData(weatherData.data.coord.lat, weatherData.data.coord.lon);
     })
+    
     .catch(error => {
         Error(error);
         console.log(error);
@@ -27,6 +28,7 @@ function loadAirQualityData(lat="52.23", lng="21.01"){
         currentAirQuality.saveGeoCordsFromLastSearchedLocation(geoCords);
         localStorage.setItem("airQualityFlag", "flag");
     })
+
     .catch(error => {
         Error(error);
         document.querySelector(".current-air-results").setAttribute("style", "display: none");
