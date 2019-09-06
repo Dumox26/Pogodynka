@@ -38,7 +38,17 @@ function loadAirQualityData(lat="52.23", lng="21.01"){
 }
 
 function bindSearchButton (){
-    
+    event.preventDefault();
+    document.querySelector(".loader-cnt").setAttribute("style", "display: flex");
+    const city = {
+            q: document.querySelector(".input-text").value
+        }   
+
+    if(document.querySelector(".input-text").value != ""){
+        loadWeatherData(city);
+    }
+
+    document.querySelector(".input-text").value = ""; 
 }
 
 // Geolocalization
@@ -64,16 +74,4 @@ navigator.geolocation.getCurrentPosition((position) => {
 
 // submit click
 
-document.querySelector(".input-text-submit").addEventListener("click", ()=>{
-    event.preventDefault()
-    document.querySelector(".loader-cnt").setAttribute("style", "display: flex");
-    const city = {
-            q: document.querySelector(".input-text").value
-        }   
-
-    if(document.querySelector(".input-text").value != ""){
-        loadWeatherData(city);
-    }
-
-    document.querySelector(".input-text").value = ""; 
-})
+document.querySelector(".input-text-submit").addEventListener("click", bindSearchButton)
