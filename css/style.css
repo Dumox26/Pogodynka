@@ -167,10 +167,15 @@ button:focus {
 
 .loader-cnt{
     width: 100%;
-    height: 100%;
-    background: blue;
+    height: 90%;
+    background: var(--secondaryColor);
     margin: auto;
     z-index: 1001;
+    position: absolute;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .loader{
@@ -179,8 +184,7 @@ button:focus {
     border: 10px solid #000;
     border-top: 8px solid grey;
     border-radius: 100%; 
-    animation: 5s infinite linear rotate;
-    margin: 50% auto;
+    animation: 3s infinite linear rotate;
 }
 
 @keyframes rotate{

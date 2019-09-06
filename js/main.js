@@ -4,6 +4,7 @@ import AirQuality from "./AirQualityClass.js"
 function loadWeatherData(inputValue = { q: "warszawa" }){
     console.log(inputValue);
     WeatherClass.downloadCurrentWeatherConditions(inputValue).then(weatherData => {
+        document.querySelector(".loader-cnt").setAttribute("style", "display: none");
         const currentWeather = new WeatherClass(weatherData.data);
         currentWeather.showCurrentWeatherConditions();
         currentWeather.savelastSearchedLocationInLocalStorage(inputValue);
@@ -36,6 +37,10 @@ function loadAirQualityData(lat="52.23", lng="21.01"){
     })
 }
 
+function bindSearchButton (){
+    
+}
+
 // Geolocalization
 navigator.geolocation.getCurrentPosition((position) => {
     const parameters = {
@@ -55,19 +60,20 @@ navigator.geolocation.getCurrentPosition((position) => {
     } else {
         loadWeatherData();
     }
-
 });
 
 // submit click
 
 document.querySelector(".input-text-submit").addEventListener("click", ()=>{
     event.preventDefault()
+    document.querySelector(".loader-cnt").setAttribute("style", "display: flex");
     const city = {
-                q: document.querySelector(".input-text").value
-            }   
-    console.log(city);
+            q: document.querySelector(".input-text").value
+        }   
+
     if(document.querySelector(".input-text").value != ""){
         loadWeatherData(city);
     }
+
     document.querySelector(".input-text").value = ""; 
 })
