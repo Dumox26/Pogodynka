@@ -56,7 +56,7 @@ class WeatherClass {
         weatherCurrentDetectableTemp.textContent = this.calculateDetectableTemp() + " \u2103";
     }
 
-    static async downloadCurrentWeatherConditions(params = { q: "warszawa" }) {
+    static async downloadCurrentWeatherConditions(params) {
         return await axios.get("https://api.openweathermap.org/data/2.5/weather?appid=92c581f751a8ab015bc220ef2217adf5&units=metric&lang=pl",
             { params });
     }
