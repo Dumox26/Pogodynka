@@ -167,12 +167,11 @@ button:focus {
 
 .loader-cnt{
     width: 100%;
-    height: 90%;
     background: var(--secondaryColor);
     margin: auto;
     z-index: 1001;
     position: absolute;
-    top: 10%;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;

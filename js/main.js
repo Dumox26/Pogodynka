@@ -51,6 +51,21 @@ function bindSearchButton (){
     document.querySelector(".input-text").value = ""; 
 }
 
+function resizeLoader(){
+    const loaderCnt = document.querySelector(".loader-cnt");
+    if(loaderCnt.style.display = "flex"){
+        const currentResultsCnt = document.querySelector(".current-results-cnt");
+        const currentResultsHeader = document.querySelector(".current-results-header");
+        const loaderSize = currentResultsCnt.clientHeight - currentResultsHeader.clientHeight;
+        loaderCnt.setAttribute("style", `height: ${loaderSize}px`);
+    }
+}
+
+//Resize loader
+
+resizeLoader();
+window.addEventListener("resize", resizeLoader);
+
 // Geolocalization
 navigator.geolocation.getCurrentPosition((position) => {
     const parameters = {
