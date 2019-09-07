@@ -55,7 +55,8 @@ function bindSearchButton (){
 
 function resizeLoader(){
     const loaderCnt = document.querySelector(".loader-cnt");
-    if(loaderCnt.style.display == "flex"){
+    const loaderCntStyle  = window.getComputedStyle(loaderCnt)
+    if(loaderCntStyle.getPropertyValue("display") === "flex"){
         const currentResultsCnt = document.querySelector(".current-results-cnt");
         const currentResultsHeader = document.querySelector(".current-results-header");
         const loaderSize = currentResultsCnt.clientHeight - currentResultsHeader.clientHeight;
