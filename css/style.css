@@ -167,10 +167,15 @@ button:focus {
 
 .loader-cnt{
     width: 100%;
-    height: 100%;
-    background: blue;
+    background: var(--secondaryColor);
     margin: auto;
     z-index: 1001;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
 .loader{
@@ -179,8 +184,7 @@ button:focus {
     border: 10px solid #000;
     border-top: 8px solid grey;
     border-radius: 100%; 
-    animation: 5s infinite linear rotate;
-    margin: 50% auto;
+    animation: 3s infinite linear rotate;
 }
 
 @keyframes rotate{
@@ -387,6 +391,7 @@ button:focus {
     .current-results-cnt{
         width: 45vw;
         grid-template-rows: 0.25fr 1fr 1fr auto;
+        margin: 3rem auto;
     }
 
     .activate-details-btn{
