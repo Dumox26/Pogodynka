@@ -39,7 +39,9 @@ function loadAirQualityData(lat="52.23", lng="21.01"){
 
 function bindSearchButton (){
     event.preventDefault();
+    resizeLoader();
     document.querySelector(".loader-cnt").setAttribute("style", "display: flex");
+
     const city = {
             q: document.querySelector(".input-text").value
         }   
@@ -53,7 +55,7 @@ function bindSearchButton (){
 
 function resizeLoader(){
     const loaderCnt = document.querySelector(".loader-cnt");
-    if(loaderCnt.style.display = "flex"){
+    if(loaderCnt.style.display == "flex"){
         const currentResultsCnt = document.querySelector(".current-results-cnt");
         const currentResultsHeader = document.querySelector(".current-results-header");
         const loaderSize = currentResultsCnt.clientHeight - currentResultsHeader.clientHeight;
@@ -61,7 +63,7 @@ function resizeLoader(){
     }
 }
 
-//Resize loader
+// //Resize loader
 
 resizeLoader();
 window.addEventListener("resize", resizeLoader);
@@ -89,4 +91,6 @@ navigator.geolocation.getCurrentPosition((position) => {
 
 // submit click
 
-document.querySelector(".input-text-submit").addEventListener("click", bindSearchButton)
+document.querySelector(".input-text-submit").addEventListener("click", bindSearchButton, false);
+document.querySelector(".input-text-submit").addEventListener("touch", bindSearchButton, false);
+document.querySelector(".input-text-submit").addEventListener("submit", bindSearchButton, false);
