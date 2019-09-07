@@ -38,10 +38,10 @@ function loadAirQualityData(lat="52.23", lng="21.01"){
 }
 
 function bindSearchButton (){
-    event.preventDefault();
-    resizeLoader();
+    event.preventDefault();  
     document.querySelector(".loader-cnt").setAttribute("style", "display: flex");
-
+    resizeLoader();
+    
     const city = {
             q: document.querySelector(".input-text").value
         }   
