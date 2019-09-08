@@ -18,9 +18,10 @@ function loadWeatherData(inputValue = { q: "warszawa" }){
 }
 
 function loadAirQualityData(lat="52.23", lng="21.01"){
+    const currentAirResults = document.querySelector(".current-air-results");
     AirQuality.downloadAirQualityData(lat, lng).then(airQualityData => {
-        const currentAirQuality = new AirQuality(airQualityData.data);
-        document.querySelector(".current-air-results").setAttribute("style", "display: grid");
+        const currentAirQuality = new AirQuality(airQualityData.data);      
+        currentAirResults.setAttribute("style", "display: grid")
         currentAirQuality.showAirQuality();
         const geoCords = {
             lat: lat,
@@ -32,7 +33,7 @@ function loadAirQualityData(lat="52.23", lng="21.01"){
 
     .catch(error => {
         Error(error);
-        document.querySelector(".current-air-results").setAttribute("style", "display: none");
+        currentAirResults.setAttribute("style", "display: none");
         localStorage.removeItem("airQualityFlag");
     })
 }
@@ -40,17 +41,19 @@ function loadAirQualityData(lat="52.23", lng="21.01"){
 function bindSearchButton (){
     event.preventDefault();  
     document.querySelector(".loader-cnt").setAttribute("style", "display: flex");
+    const inputText = document.querySelector(".input-text");
     resizeLoader();
     
     const city = {
-            q: document.querySelector(".input-text").value
+            q: inputText.value
         }   
 
-    if(document.querySelector(".input-text").value != ""){
+    if(inputText.value != ""){
         loadWeatherData(city);
     }
 
-    document.querySelector(".input-text").value = ""; 
+    inputText.blur();
+    inputText.value = ""; 
 }
 
 function resizeLoader(){
