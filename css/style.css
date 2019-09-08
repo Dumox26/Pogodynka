@@ -228,6 +228,7 @@ button:focus {
 
 .current-weather-describe{
     text-transform: capitalize;
+    text-align: center;
 }
 
 .activate-details-btn{
