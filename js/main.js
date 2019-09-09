@@ -3,8 +3,7 @@ import AirQuality from "./AirQualityClass.js"
 
 function loadWeatherData(inputValue = { q: "warszawa" }){
     console.log(inputValue);
-    WeatherClass.downloadCurrentWeatherConditions(inputValue).then(weatherData => {
-        document.querySelector(".loader-cnt").setAttribute("style", "display: none");
+    WeatherClass.downloadCurrentWeatherConditions(inputValue).then(weatherData => {        
         const currentWeather = new WeatherClass(weatherData.data);
         currentWeather.showCurrentWeatherConditions();
         currentWeather.savelastSearchedLocationInLocalStorage(inputValue);
@@ -14,6 +13,7 @@ function loadWeatherData(inputValue = { q: "warszawa" }){
     .catch(error => {
         Error(error);
         console.log(error);
+        showErrorMessage(inputValue.q);
     })
 }
 
@@ -29,24 +29,32 @@ function loadAirQualityData(lat="52.23", lng="21.01"){
         }
         currentAirQuality.saveGeoCordsFromLastSearchedLocation(geoCords);
         localStorage.setItem("airQualityFlag", "flag");
+        document.querySelector(".loader-cnt").setAttribute("style", "display: none");
     })
 
     .catch(error => {
         Error(error);
         currentAirResults.setAttribute("style", "display: none");
         localStorage.removeItem("airQualityFlag");
+        document.querySelector(".loader-cnt").setAttribute("style", "display: none");
     })
 }
 
 function bindSearchButton (){
-    event.preventDefault();  
-    document.querySelector(".loader-cnt").setAttribute("style", "display: flex");
+    event.preventDefault();
+
+    const errorMessageCnt = document.querySelector(".error-message-cnt");
+    errorMessageCnt.setAttribute("style", "display: none");
+
+    const loaderCnt = document.querySelector(".loader-cnt");
+    loaderCnt.setAttribute("style", "display: flex");
+
     const inputText = document.querySelector(".input-text");
-    resizeLoader();
+    resizeContainer("loader-cnt");
     
     const city = {
             q: inputText.value
-        }   
+        };   
 
     if(inputText.value != ""){
         loadWeatherData(city);
@@ -56,21 +64,43 @@ function bindSearchButton (){
     inputText.value = ""; 
 }
 
-function resizeLoader(){
+function showErrorMessage(inputValue){
+        
     const loaderCnt = document.querySelector(".loader-cnt");
-    const loaderCntStyle  = window.getComputedStyle(loaderCnt)
-    if(loaderCntStyle.getPropertyValue("display") === "flex"){
+    loaderCnt.setAttribute("style", "display: none");
+
+    const errorMessageCnt = document.querySelector(".error-message-cnt");
+    errorMessageCnt.setAttribute("style", "display: flex");
+
+    resizeContainer("error-message-cnt");
+
+    const currentCity = document.querySelector(".current-city");
+    currentCity.textContent = "Błąd";
+
+    const errorMessage = errorMessageCnt.querySelector(".error-message");
+    errorMessage.textContent = `Nie znalezionio danych dla ${inputValue}. \n
+                                    Upewnij się, że wpisałeś poprawne dane.`;  
+}
+
+function resizeContainer(container){
+    const containerToResize = document.querySelector(`.${container}`);
+    const containerToResizeStyle  = window.getComputedStyle(containerToResize);
+
+    if(containerToResizeStyle.getPropertyValue("display") === "flex"){
         const currentResultsCnt = document.querySelector(".current-results-cnt");
         const currentResultsHeader = document.querySelector(".current-results-header");
-        const loaderSize = currentResultsCnt.clientHeight - currentResultsHeader.clientHeight;
-        loaderCnt.setAttribute("style", `height: ${loaderSize}px`);
+        const containerSize = currentResultsCnt.clientHeight - currentResultsHeader.clientHeight;
+        containerToResize.style.height = containerSize + "px";
     }
 }
 
-// //Resize loader
+ //Resize loader
 
-resizeLoader();
-window.addEventListener("resize", resizeLoader);
+resizeContainer("loader-cnt");
+window.addEventListener("resize", function(){
+    resizeContainer("loader-cnt");
+    resizeContainer("error-message-cnt");
+});
 
 // Geolocalization
 navigator.geolocation.getCurrentPosition((position) => {

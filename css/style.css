@@ -165,17 +165,20 @@ button:focus {
 
 /* PreLoader */
 
-.loader-cnt{
+.loader-cnt, .error-message-cnt{
     width: 100%;
     background: var(--secondaryColor);
     margin: auto;
     z-index: 1001;
     position: absolute;
     bottom: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+}
+
+.loader-cnt{
+    display:flex;
 }
 
 .loader{
@@ -186,6 +189,11 @@ button:focus {
     border-radius: 100%; 
     animation: 3s infinite linear rotate;
 }
+
+.error-message-cnt{
+    display: none;
+}
+
 
 @keyframes rotate{
     0%{
