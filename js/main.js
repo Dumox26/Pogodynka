@@ -13,7 +13,7 @@ function loadWeatherData(inputValue = { q: "warszawa" }){
     .catch(error => {
         Error(error);
         console.log(error);
-        testFunction(inputValue.q);
+        showErrorMessage(inputValue.q);
     })
 }
 
@@ -64,53 +64,37 @@ function bindSearchButton (){
     inputText.value = ""; 
 }
 
-function testFunction(x){
+function showErrorMessage(inputValue){
         
     const loaderCnt = document.querySelector(".loader-cnt");
     loaderCnt.setAttribute("style", "display: none");
 
     const errorMessageCnt = document.querySelector(".error-message-cnt");
     errorMessageCnt.setAttribute("style", "display: flex");
-    console.log(errorMessageCnt.getAttribute("style", "display"));
+
     resizeContainer("error-message-cnt");
 
     const currentCity = document.querySelector(".current-city");
     currentCity.textContent = "Błąd";
 
     const errorMessage = errorMessageCnt.querySelector(".error-message");
-    errorMessage.textContent = `Nie znalezionio danych dla ${x}. \n
-                                    Upewnij się, że wpisałeś poprawne dane.`;
-    console.log(errorMessageCnt.getAttribute("style", "display"));
-    
+    errorMessage.textContent = `Nie znalezionio danych dla ${inputValue}. \n
+                                    Upewnij się, że wpisałeś poprawne dane.`;  
 }
 
 function resizeContainer(container){
     const containerToResize = document.querySelector(`.${container}`);
     const containerToResizeStyle  = window.getComputedStyle(containerToResize);
-    console.log(containerToResizeStyle);
+
     if(containerToResizeStyle.getPropertyValue("display") === "flex"){
         const currentResultsCnt = document.querySelector(".current-results-cnt");
         const currentResultsHeader = document.querySelector(".current-results-header");
         const containerSize = currentResultsCnt.clientHeight - currentResultsHeader.clientHeight;
         containerToResize.style.height = containerSize + "px";
-    }else{
-        console.log("saff");
     }
 }
 
-// function resizeLoader(){
-//     const loaderCnt = document.querySelector(".loader-cnt");
-//     const loaderCntStyle  = window.getComputedStyle(loaderCnt)
-    
-//     if(loaderCntStyle.getPropertyValue("display") === "flex"){
-//         const currentResultsCnt = document.querySelector(".current-results-cnt");
-//         const currentResultsHeader = document.querySelector(".current-results-header");
-//         const loaderSize = currentResultsCnt.clientHeight - currentResultsHeader.clientHeight;
-//         loaderCnt.setAttribute("style", `height: ${loaderSize}px`);
-//     }
-// }
-
-// //Resize loader
+ //Resize loader
 
 resizeContainer("loader-cnt");
 window.addEventListener("resize", function(){
