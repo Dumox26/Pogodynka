@@ -12,12 +12,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body{
     background-color: var(--backgroundColor);
     font-family: 'Montserrat';
-    font-size: 1rem;
     color: #fff;
     display: grid;
     grid-template-rows: repeat(3, auto);
@@ -218,16 +219,16 @@ button:focus {
     align-content: center;
 }
 
-.cnt h4, span{
+.cnt .type-of-value, .value{
     text-align: center;
     margin: 0.3rem
 }
 
-.cnt h4{
+.cnt .type-of-value{
     font-size: 0.8rem;
 }
 
-.cnt span{
+.cnt .value{
     font-size: 1.2rem;
 }
 
@@ -298,6 +299,23 @@ button:focus {
 
 .caqi-cnt{
     grid-area: 1/1/2/2;
+}
+
+.api-provider-logo-cnt{
+
+}
+
+.api-provider-logo-description{
+    font-size: 0.6rem;
+}
+
+.api-provider-logo{
+    background-image: url(../img/apiLogo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 3.5rem;
+    width: 70px;
+    height: 30px;
 }
 
 .air-quality-describe-cnt{
