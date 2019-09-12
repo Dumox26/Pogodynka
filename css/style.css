@@ -301,10 +301,6 @@ button:focus {
     grid-area: 1/1/2/2;
 }
 
-.api-provider-logo-cnt{
-
-}
-
 .api-provider-logo-description{
     font-size: 0.6rem;
 }
