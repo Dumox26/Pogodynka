@@ -42,7 +42,6 @@ class WeatherClass {
         const weatherCurrentDetailsWindSpeed = document.querySelector(".wind-value");
         const weatherCurrentDetectableTemp = document.querySelector(".detectable-value");
 
-
         weatherCurrentIcone.setAttribute("src", iconAPiURL + this.icon + "@2x.png");
         weatherCurrentIcone.setAttribute("alt", this.description);
         weatherCurrentDescription.textContent = this.description;
