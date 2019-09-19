@@ -343,7 +343,6 @@ button:focus {
 }
 
 /*Stopka strony*/
-
 .site-footer{
     background: var(--secondaryColor);
     border-top: 0.3rem solid var(--bordersColor);

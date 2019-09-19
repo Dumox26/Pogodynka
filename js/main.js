@@ -124,7 +124,6 @@ navigator.geolocation.getCurrentPosition((position) => {
 });
 
 // submit click
-
 document.querySelector(".input-text-submit").addEventListener("click", bindSearchButton, false);
 document.querySelector(".input-text-submit").addEventListener("touch", bindSearchButton, false);
 document.querySelector(".input-text-submit").addEventListener("submit", bindSearchButton, false);

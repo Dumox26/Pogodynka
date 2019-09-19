@@ -33,7 +33,6 @@ class AirQuality {
     };
     
     static async downloadAirQualityData(lat, lng){
-        console.log(`lat=${lat} lng=${lng}`);
         const apiURL = "https://airapi.airly.eu/v2/measurements/nearest?indexType=AIRLY_CAQI&maxDistanceKM=10"
         return await axios({method:"get", url: apiURL, params:{
             "lat": lat,
