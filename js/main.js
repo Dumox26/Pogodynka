@@ -19,6 +19,7 @@ function loadWeatherData(inputValue = { q: "warszawa" }){
 
 function loadAirQualityData(lat="52.23", lng="21.01"){
     const currentAirResults = document.querySelector(".current-air-results");
+
     AirQuality.downloadAirQualityData(lat, lng).then(airQualityData => {
         const currentAirQuality = new AirQuality(airQualityData.data);      
         currentAirResults.setAttribute("style", "display: grid")
@@ -64,8 +65,7 @@ function bindSearchButton (){
     inputText.value = ""; 
 }
 
-function showErrorMessage(inputValue){
-        
+function showErrorMessage(inputValue){       
     const loaderCnt = document.querySelector(".loader-cnt");
     loaderCnt.setAttribute("style", "display: none");
 
