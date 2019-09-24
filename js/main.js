@@ -4,7 +4,7 @@
 import WeatherClass from './WeatherClass.js';
 import AirQuality from './AirQualityClass.js';
 
-function loadAirQualityData(lat = '52.23', lng = '21.01') {
+const loadAirQualityData = (lat = '52.23', lng = '21.01') => {
   const currentAirResults = document.querySelector('.current-air-results');
   const loaderCnt = document.querySelector('.loader-cnt');
 
@@ -27,9 +27,9 @@ function loadAirQualityData(lat = '52.23', lng = '21.01') {
       localStorage.removeItem('airQualityFlag');
       loaderCnt.setAttribute('style', 'display: none');
     });
-}
+};
 
-function resizeContainer(container) {
+const resizeContainer = (container) => {
   const containerToResize = document.querySelector(`.${container}`);
   const containerToResizeStyle = window.getComputedStyle(containerToResize);
 
@@ -39,9 +39,9 @@ function resizeContainer(container) {
     const containerSize = currentResultsCnt.clientHeight - currentResultsHeader.clientHeight;
     containerToResize.style.height = `${containerSize}px`;
   }
-}
+};
 
-function showErrorMessage(inputValue) {
+const showErrorMessage = (inputValue) => {
   const loaderCnt = document.querySelector('.loader-cnt');
   loaderCnt.setAttribute('style', 'display: none');
 
@@ -56,9 +56,9 @@ function showErrorMessage(inputValue) {
   const errorMessage = errorMessageCnt.querySelector('.error-message');
   errorMessage.textContent = `Nie znalezionio danych dla ${inputValue}. \n
                                     Upewnij się, że wpisałeś poprawne dane.`;
-}
+};
 
-function loadWeatherData(inputValue = { q: 'warszawa' }) {
+const loadWeatherData = (inputValue = { q: 'warszawa' }) => {
   WeatherClass.downloadCurrentWeatherConditions(inputValue).then((weatherData) => {
     const currentWeather = new WeatherClass(weatherData.data);
     currentWeather.showCurrentWeatherConditions();
@@ -70,9 +70,9 @@ function loadWeatherData(inputValue = { q: 'warszawa' }) {
       Error(error);
       showErrorMessage(inputValue.q);
     });
-}
+};
 
-function bindSearchButton() {
+const bindSearchButton = () => {
   event.preventDefault();
 
   const errorMessageCnt = document.querySelector('.error-message-cnt');
@@ -94,7 +94,7 @@ function bindSearchButton() {
 
   inputText.blur();
   inputText.value = '';
-}
+};
 
 // Resize loader
 
